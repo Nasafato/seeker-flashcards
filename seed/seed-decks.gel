@@ -1,0 +1,43 @@
+with deck := (
+    insert Deck {
+        name := 'Smelly Cheeses',
+        description := 'To impress everyone with stinky cheese trivia.'
+    }
+)
+for card_data in {(
+    1,
+    'Époisses de Bourgogne',
+    'Known as the "king of cheeses", this French cheese is so pungent it\'s banned on public transport in France. Washed in brandy, it becomes increasingly funky as it ages. Orange-red rind, creamy interior.'
+), (
+    2,
+    'Vieux-Boulogne',
+    'Officially the smelliest cheese in the world according to scientific studies. This northern French cheese has a reddish-orange rind from being washed in beer. Smooth, creamy texture with a powerful aroma.'
+), (
+    3,
+    'Durian Cheese',
+    'This Malaysian creation combines durian fruit with cheese, creating what some consider the ultimate "challenging" dairy product. Combines the pungency of blue cheese with durian\'s notorious aroma.'
+), (
+    4,
+    'Limburger',
+    'German cheese famous for its intense smell, often compared to foot odor due to the same bacteria. Despite its reputation, has a surprisingly mild taste with notes of mushroom and grass.'
+), (
+    5,
+    'Roquefort',
+    'The "king of blue cheeses", aged in limestone caves in southern France. Contains Penicillium roqueforti mold. Strong, tangy, and salty with a crumbly texture. Legend says it was discovered when a shepherd left his lunch in a cave.'
+), (
+    6,
+    'What makes washed-rind cheeses so smelly?',
+    'The process of washing cheese rinds in brine, alcohol, or other solutions promotes the growth of Brevibacterium linens, the same bacteria responsible for human body odor. This bacteria contributes to both the orange color and distinctive aroma.'
+), (
+    7,
+    'Stinking Bishop',
+    'Named after the Stinking Bishop pear (not a religious figure). This English cheese is washed in perry made from these pears. Known for its powerful aroma and sticky, pink-orange rind. Gained fame after being featured in Wallace & Gromit.'
+)}
+union (
+    insert Card {
+        deck := deck,
+        order := card_data.0,
+        front := card_data.1,
+        back := card_data.2
+    }
+);
