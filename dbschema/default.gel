@@ -37,12 +37,15 @@ module default {
         }
         property emailVerified -> datetime;
         property image -> str;
+        property passwordHash -> str;
+        property passwordSalt -> str;
         multi link accounts := .<user[is Account];
         multi link sessions := .<user[is Session];
         property createdAt -> datetime {
             default := datetime_current();
         };
     }
+
  
     type Account {
        required property userId := .user.id;

@@ -1,5 +1,4 @@
 import NextAuth from "next-auth"
-// import { client } from '@/lib/gel'
 import GitHub from "next-auth/providers/github"
 import { Provider } from "next-auth/providers"
 import { EdgeDBAdapter } from "@auth/edgedb-adapter"
@@ -8,8 +7,9 @@ import { createHttpClient } from "gel"
 const providers: Provider[] = [
   GitHub,
 ]
-console.log('AUTH_EDGEDB_DSN', process.env.AUTH_EDGEDB_DSN)
+
 const client = createHttpClient({
+  // TODO: remove this.
   tlsSecurity: 'insecure',
   dsn: process.env.AUTH_EDGEDB_DSN,
 });
